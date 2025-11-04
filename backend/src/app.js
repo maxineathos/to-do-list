@@ -1,18 +1,18 @@
-// Importações
+// Imports
 import express from 'express';
 import routes from './routes/routes.route.js';
 
-// Definindo constantes de inicialização do express e porta padrão do servidor
+// Setting express initialization constants and default server port
 const app = express();
 const PORT = 3000;
 
-// Middleware de PARSE JSON
+// PARSE JSON middleware
 app.use(express.json());
 
-// Definindo uso de rotas
+// Defining route usage
 routes(app);
 
-// Iniciando o servidor
+// Starting the server
 app.listen(PORT, () => {
     console.log(`Servidor rodando em: http://localhost:${PORT}`);
 });

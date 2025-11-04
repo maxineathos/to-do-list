@@ -1,5 +1,7 @@
+// Imports
 import express from 'express';
 
+// Defining default route
 const routes = (app) => {
     app.route('/').get((req, res) => {
         res.status(200).send({ message: 'To-do List.' })
@@ -10,4 +12,5 @@ const routes = (app) => {
 )
 };
 
+// Exports
 export default routes;
