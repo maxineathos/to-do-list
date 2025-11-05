@@ -1,6 +1,6 @@
 // Imports
-import express from 'express';
-import routes from './routes/routes.route.js';
+const express = require('express');
+const routes = require('./routes/index.js');
 
 // Setting express initialization constants and default server port
 const app = express();
@@ -16,3 +16,5 @@ routes(app);
 app.listen(PORT, () => {
     console.log(`Servidor rodando em: http://localhost:${PORT}`);
 });
+
+module.exports = app;

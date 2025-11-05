@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   Task.init({
     title: DataTypes.STRING,
     description: DataTypes.STRING,
-    status: DataTypes.ENUM
+    status: DataTypes.ENUM('to_do', 'in_progress', 'done')
   }, {
     sequelize,
     modelName: 'Task',
