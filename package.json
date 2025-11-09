@@ -5,16 +5,21 @@
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon backend/src/app.js"
+    "dev": "nodemon ./backend/src/app.js",
+    "migrate": "npx sequelize-cli db:migrate --config backend/src/config/config.json --migrations-path backend/src/migrations",
+    "seed": "npx sequelize-cli db:seed:all --config backend/src/config/config.json --seeders-path backend/src/seeders",
+    "db:init": "npm run migrate && npm run seed"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
     "sequelize": "^6.37.7",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "swagger-ui-express": "^5.0.1"
   }
 }

@@ -14,10 +14,38 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Task.init({
-    title: DataTypes.STRING,
-    description: DataTypes.STRING,
-    status: DataTypes.ENUM('to_do', 'in_progress', 'done')
-  }, {
+    title: { 
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Title can't be empty.`
+        }
+      }
+    },
+    description: { 
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Description can't be empty.`
+        }
+      }
+    },
+    status: {
+      type: DataTypes.ENUM('to_do', 'in_progress', 'done'),
+      allowNull: false,
+      validate: {
+        isIn: {
+          args: [['to_do', 'in_progress', 'done']],
+          msg: `Status can only be: 'to_do' || 'in_progress' || 'done'`
+        },
+        notEmpty: {
+          msg: `Status can't be empty.`
+        }
+      }
+    }
+    }, {
     sequelize,
     modelName: 'Task',
     tableName: 'tasks'

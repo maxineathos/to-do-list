@@ -17,6 +17,7 @@ module.exports = {
       },
       status: {
         type: Sequelize.ENUM('to_do', 'in_progress', 'done'),
+        allowNull: false,
         defaultValue: 'to_do'
       },
       createdAt: {

@@ -135,5 +135,16 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# sqlite database
-database.sqlite
+# database
+*.accdb
+*.db
+*.dbf
+*.mdb
+*.pdb
+*.sqlite3
+*.sqlite
+*.db-shm
+*.db-wal
+
+# dotenv
+.env
